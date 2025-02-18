@@ -111,13 +111,19 @@ def generate_pdf(data):
     pdfkit.from_string(html_content, pdf_file_name, configuration=config)
     print(f"Generated invoice: {pdf_file_name}")
 
-data_file = 'sales_data.xlsx'
-sale_data= read_excel_data(data_file)
+def main():
+    data_file = 'sales_data.xlsx'
+    sale_data= read_excel_data(data_file)
 
-if sale_data is None:
-    print(f"File is empty:{data_file}")
-else:
-    generate_invoice(sale_data)
+    if sale_data is None:
+        print(f"File is empty:{data_file}")
+    else:
+        generate_invoice(sale_data)
+
+# Entry point of the script
+if __name__ == "__main__":
+    main()
+
 
 
 
